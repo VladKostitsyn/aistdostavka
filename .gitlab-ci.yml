@@ -1,0 +1,377 @@
+stages:
+  - deploy-demo4
+  - deploy-cepten-su
+  - deploy-customer
+  - deploy-imbir
+  - deploy-napolitano
+  - deploy-shashlik-dvorik
+  - deploy-shushi-master
+  - deploy-aquaroll
+  - deploy-primorie
+  - deploy-vash-hleb
+  - deploy-sunpanda
+  - deploy-rohmanenko
+  - deploy-dostavking
+  - deploy-salpagarov
+  - deploy-deliveryfood
+  - deploy-apeironspace
+  - deploy-eda-eda
+  - deploy-sacksgroup
+  - deploy-8956
+
+deploy-live-demo4:
+  stage: deploy-demo4
+  tags:
+    - live
+
+  script:
+    - cd /app/demo4.fooddelive.ru
+    - git reset --hard
+    - git pull origin master
+    - php artisan migrate
+    - php artisan optimize
+    - php artisan config:cache
+    - chown -R www-data:www-data /app/demo4.fooddelive.ru
+
+  environment: prod
+  only:
+    - master
+
+
+deploy-live-cepten-su:
+  stage: deploy-cepten-su
+  tags:
+    - live
+
+  script:
+    - cd /app/cepten-su.fooddelive.ru
+    - git reset --hard
+    - git pull origin master
+    - php artisan migrate
+    - php artisan optimize
+    - php artisan config:cache
+    - chown -R www-data:www-data /app/cepten-su.fooddelive.ru
+
+  environment: prod
+  only:
+    - master
+
+
+deploy-live-customer:
+  stage: deploy-customer
+  tags:
+    - live
+
+  script:
+    - cd /app/customer.fooddelive.ru
+    - git reset --hard
+    - git pull origin master
+    - php artisan migrate
+    - php artisan optimize
+    - php artisan config:cache
+    - chown -R www-data:www-data /app/customer.fooddelive.ru
+
+  environment: prod
+  only:
+    - master
+
+
+deploy-live-imbir:
+  stage: deploy-imbir
+  tags:
+    - live
+
+  script:
+    - cd /app/imbir.fooddelive.ru
+    - git reset --hard
+    - git pull origin master
+    - php artisan migrate
+    - php artisan optimize
+    - php artisan config:cache
+    - chown -R www-data:www-data /app/imbir.fooddelive.ru
+
+  environment: prod
+  only:
+    - master
+
+  
+deploy-live-napolitano:
+  stage: deploy-napolitano
+  tags:
+    - live
+
+  script:
+    - cd /app/napolitano.fooddelive.ru
+    - git reset --hard
+    - git pull origin master
+    - php artisan migrate
+    - php artisan optimize
+    - php artisan config:cache
+    - chown -R www-data:www-data /app/napolitano.fooddelive.ru
+
+  environment: prod
+  only:
+    - master
+
+
+deploy-live-shashlik-dvorik:
+  stage: deploy-shashlik-dvorik
+  tags:
+    - live
+
+  script:
+    - cd /app/shashlik-dvorik.fooddelive.ru
+    - git reset --hard
+    - git pull origin salpagarov
+    - php artisan migrate
+    - php artisan optimize
+    - php artisan config:cache
+    - chown -R www-data:www-data /app/shashlik-dvorik.fooddelive.ru
+
+  environment: prod
+  only:
+    - salpagarov
+
+
+deploy-live-shushi-master:
+  stage: deploy-shushi-master
+  tags:
+    - live
+
+  script:
+    - cd /app/shushi-master-pizza.fooddelive.ru
+    - git reset --hard
+    - git pull origin master
+    - php artisan migrate
+    - php artisan optimize
+    - php artisan config:cache
+    - chown -R www-data:www-data /app/shushi-master-pizza.fooddelive.ru
+
+  environment: prod
+  only:
+    - master
+
+
+deploy-live-shushi-aquaroll:
+  stage: deploy-aquaroll
+  tags:
+    - live
+
+  script:
+    - cd /app/aquaroll.fooddelive.ru
+    - git reset --hard
+    - git pull origin master
+    - php artisan migrate
+    - php artisan optimize
+    - php artisan config:cache
+    - chown -R www-data:www-data /app/aquaroll.fooddelive.ru
+
+  environment: prod
+  only:
+    - master
+
+
+deploy-live-primorie:
+  stage: deploy-primorie
+  tags:
+    - live
+
+  script:
+    - cd /app/primorie.foddelive.ru
+    - git reset --hard
+    - git pull origin master
+    - php artisan migrate
+    - php artisan optimize
+    - php artisan config:cache
+    - chown -R www-data:www-data /app/primorie.foddelive.ru
+
+  environment: prod
+  only:
+    - master
+  
+
+deploy-live-vash-hleb:
+  stage: deploy-vash-hleb
+  tags:
+    - live
+
+  script:
+    - cd /app/vash-hleb.fooddelive.ru
+    - git reset --hard
+    - git pull origin master
+    - php artisan migrate
+    - php artisan optimize
+    - php artisan config:cache
+    - chown -R www-data:www-data /app/vash-hleb.fooddelive.ru
+
+  environment: prod
+  only:
+    - master
+
+
+deploy-live-sunpanda:
+  stage: deploy-sunpanda
+  tags:
+    - live
+
+  script:
+    - cd /app/sunpanda.fooddelive.ru
+    - git reset --hard
+    - git pull origin salpagarov
+    - php artisan migrate
+    - php artisan optimize
+    - php artisan config:cache
+    - chown -R www-data:www-data /app/sunpanda.fooddelive.ru
+
+  environment: prod
+  only:
+    - salpagarov
+
+
+deploy-live-rohmanenko:
+  stage: deploy-rohmanenko
+  tags:
+    - live
+
+  script:
+    - cd /app/rohmanenko.fooddelive.ru
+    - git reset --hard
+    - git pull origin master
+    - php artisan migrate
+    - php artisan optimize
+    - php artisan config:cache
+    - chown -R www-data:www-data /app/rohmanenko.fooddelive.ru/
+
+  environment: prod
+  only:
+    - master
+
+
+deploy-live-dostavking:
+  stage: deploy-dostavking
+  tags:
+    - app-node2
+
+  script:
+    - cd /app/admin.dostavking.ru
+    - git reset --hard
+    - git pull origin master
+    - php artisan migrate
+    - php artisan optimize
+    - php artisan config:cache
+    - chown -R www-data:www-data /app/admin.dostavking.ru/
+
+  environment: prod
+  only:
+    - master
+
+
+deploy-apeironspace:
+  stage: deploy-apeironspace
+  tags:
+    - live
+
+  script:
+    - cd /app/apeironspace.fooddelive.ru
+    - git reset --hard
+    - git pull origin salpagarov
+    - php artisan migrate
+    - php artisan optimize
+    - php artisan config:cache
+    - chown -R www-data:www-data /app/apeironspace.fooddelive.ru
+
+  environment: prod
+  only:
+    - salpagarov
+
+
+deploy-live-eda-eda:
+  stage: deploy-eda-eda
+  tags:
+    - live
+
+  script:
+    - cd /app/eda-eda.fooddelive.ru
+    - git reset --hard
+    - git pull origin salpagarov
+    - php artisan migrate
+    - php artisan optimize
+    - php artisan config:cache
+    - chown -R www-data:www-data /app/eda-eda.fooddelive.ru
+
+  environment: prod
+  only:
+    - salpagarov
+
+deploy-live-salpagarov:
+  stage: deploy-salpagarov
+  tags:
+    - live
+
+  script:
+    - cd /app/salpagarov.fooddelive.ru
+    - cd /app/apeironspace.fooddelive.ru
+    - git reset --hard
+    - git pull origin salpagarov
+    - php artisan migrate
+    - php artisan optimize
+    - php artisan config:cache
+    - chown -R www-data:www-data /app/salpagarov.fooddelive.ru
+
+  environment: prod
+  only:
+    - salpagarov
+
+deploy-live-deliveryfood:
+  stage: deploy-deliveryfood
+  tags:
+    - live
+
+  script:
+    - cd /app/deliveryfood.fooddelive.ru
+    - git reset --hard
+    - git pull origin salpagarov
+    - php artisan migrate
+    - php artisan optimize
+    - php artisan config:cache
+    - chown -R www-data:www-data /app/deliveryfood.fooddelive.ru
+
+  environment: prod
+  only:
+    - salpagarov
+
+deploy-live-sacksgroup:
+  stage: deploy-sacksgroup
+  tags:
+    - live
+
+  script:
+    - cd /app/sacksgroup.fooddelive.ru
+    - git reset --hard
+    - git pull origin salpagarov
+    - php artisan migrate
+    - php artisan optimize
+    - php artisan config:cache
+    - chown -R www-data:www-data /app/sacksgroup.fooddelive.ru
+
+  environment: prod
+  only:
+    - salpagarov
+
+deploy-live-8956:
+  stage: deploy-8956
+  tags:
+    - live
+
+  script:
+    - cd /app/8956.fooddelive.ru
+    - git reset --hard
+    - git pull origin salpagarov
+    - php artisan migrate
+    - php artisan optimize
+    - php artisan config:cache
+    - chown -R www-data:www-data /app/8956.fooddelive.ru
+
+  environment: prod
+  only:
+    - salpagarov

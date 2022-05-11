@@ -1,0 +1,17 @@
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+/storage/medialibrary
+/.idea
+/.vscode
+/.vagrant
+/config/broadcasting.php
+/resources/views/layouts/app.blade.php
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+composer.lock
+.env
